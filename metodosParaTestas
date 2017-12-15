@@ -1,0 +1,35 @@
+meuLast - Encontra o ultimo, vazia "Lista vazia!"
+
+penultimo - Encontra o penultimo, vazia ou com um "Lista sem penultimo"
+
+elementAt - indexOf
+
+meuLength - Tamanho da lista
+
+meuReverso - Retorna o inverso de uma lista
+
+isPalindrome - Diz se é um palíndromo
+
+compress - Remove elementos repetidos de uma lista
+
+compact - Junta elementos iguais
+
+encode - retorna uma lista com pares dos elementos e suas quantidades.
+
+split - divide uma lista em duas subs no ponto de divisao passado
+
+slice - extrai um pedaço da lista especificado por um intervalo
+
+insertAt- Insere elemento numa posição especifica
+
+minList - Ordena em ordem crescente
+
+mySum - calcula a soma de todos os elementos
+
+maxList - Retorna o max de uma lista
+
+buildPalindrome - transforma uma string num palindromo, conc o seu reverso no fim
+
+mean - calcula a média dos elementos de uma lista
+
+myAppend - Faz o append de duas listas recebidas
