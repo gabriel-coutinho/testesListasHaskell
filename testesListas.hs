@@ -53,19 +53,53 @@ testsMeuLength = TestList [testMeuLengthVazia, testMeuLengthUmElemento, testMeuL
  testMeuLengthPar, testMeuLengthNegativo, testMeuLengthZeros, testMeuLengthRepetidos]
 
 testMeuReversoVazia = TestCase (assertEqual "testMeuReversoVazia" [] (meuReverso []) )
-testMeuReversoElemento = TestCase (assertEqual "testMeuReversoElemento" [5] (meuReverso [5]) )
+testMeuReversoUmElemento = TestCase (assertEqual "testMeuReversoUmElemento" [5] (meuReverso [5]) )
 testMeuReversoImpar = TestCase (assertEqual "testMeuReversoImpar" [3, 25, 13] (meuReverso [13, 25, 3]) )
 testMeuReversoPar = TestCase (assertEqual "testMeuReversoPar" [12, 8, 2, 13] (meuReverso [13, 2, 8, 12]) )
 testMeuReversoNegativo = TestCase (assertEqual "testMeuReversoNegativo" [-8, -3, -5] (meuReverso [-5, -3, -8]) )
 testMeuReversoZeros = TestCase (assertEqual "testMeuReversoZeros" [0, 0, 0, 0] (meuReverso [0, 0, 0, 0]) )
 testMeuReversoRepetidos = TestCase (assertEqual "testMeuReversoRepetidos" [2, 2, 2] (meuReverso [2, 2, 2]) )
 
-testsMeuReverso = TestList [testMeuReversoVazia, testMeuReversoElemento, testMeuReversoImpar,
+testsMeuReverso = TestList [testMeuReversoVazia, testMeuReversoUmElemento, testMeuReversoImpar,
  testMeuReversoPar, testMeuReversoNegativo, testMeuReversoZeros, testMeuReversoRepetidos]
 
-{-isPalindrome
-compress
-compact
+testIsPalindromeVazia = TestCase (assertEqual "testIsPalindromeVazia" True (isPalindrome []) )
+testIsPalindromeUmElemento = TestCase (assertEqual "testIsPalindromeElemento" True (isPalindrome [5]) )
+testIsPalindromeImpar = TestCase (assertEqual "testIsPalindromeImpar" False (isPalindrome [13, 25, 3]) )
+testIsPalindromeImpar = TestCase (assertEqual "testIsPalindromeImpar" True (isPalindrome [13, 25, 13]) )
+testIsPalindromePar = TestCase (assertEqual "testIsPalindromePar" False (isPalindrome [13, 2, 8, 12]) )
+testIsPalindromePar = TestCase (assertEqual "testIsPalindromePar" True (isPalindrome [12, 3, 3, 12]) )
+testIsPalindromeNegativo = TestCase (assertEqual "testIsPalindromeNegativo" Faalse (isPalindrome [-5, -3, -8]) )
+testIsPalindromeNegativo = TestCase (assertEqual "testIsPalindromeNegativo" True (isPalindrome [-1, -3, -1]) )
+testIsPalindromeZeros = TestCase (assertEqual "testIsPalindromeZeros" True (isPalindrome [0, 0, 0, 0]) )
+testIsPalindromeRepetidos = TestCase (assertEqual "testIsPalindromeRepetidos" True (isPalindrome [2, 2, 2]) )
+
+testsIsPalindrome = TestList [testIsPalindromeVazia, testIsPalindromeElemento, testIsPalindromeImpar,
+ testIsPalindromePar, testIsPalindromeNegativo, testIsPalindromeZeros, testIsPalindromeRepetidos]
+ 
+testCompressVazia = TestCase (assertEqual "testCompressVazia" [] (compress []) )
+testCompressUmElemento = TestCase (assertEqual "testCompressUmElemento" [5] (compress [5]) )
+testCompressImpar = TestCase (assertEqual "testCompressImpar" [13, 25, 3, 5] (compress [13, 25, 3, 5, 3]) )
+testCompressPar = TestCase (assertEqual "testCompressPar" [12, 2, 8] (compress [12, 2, 8, 12]) )
+testCompressNegativo = TestCase (assertEqual "testCompressNegativo" [-5, -8] (compress [-5, -8, -8]) )
+testCompressZeros = TestCase (assertEqual "testCompressZeros" [0] (compress [0, 0, 0, 0]) )
+testCompressRepetidos = TestCase (assertEqual "testCompressRepetidos" [2] (compress [2, 2, 2]) )
+
+testsCompress = TestList [testCompressVazia, testCompressUmElemento, testCompressImpar,
+ testCompressPar, testCompressNegativo, testCompressZeros, testCompressRepetidos]
+
+testCompactVazia = TestCase (assertEqual "testCompactVazia" [] (compact []) )
+testCompactUmElemento = TestCase (assertEqual "testCompactUmElemento" [5] (compact [5]) )
+testCompactImpar = TestCase (assertEqual "testCompactImpar" [3, 3, 25] (compact [3, 25, 3]) )
+testCompactPar = TestCase (assertEqual "testCompactPar" [13, 12, 12, 8] (compact [13, 12, 8, 12]) )
+testCompactNegativo = TestCase (assertEqual "testCompactNegativo" [-5, -3, -8] (compact [-5, -3, -8]) )
+testCompactZeros = TestCase (assertEqual "testCompactZeros" [0, 0, 0, 0] (compact [0, 0, 0, 0]) )
+testCompactRepetidos = TestCase (assertEqual "testCompactRepetidos" [2, 2, 2] (compact [2, 2, 2]) )
+
+testsCompact = TestList [testCompactVazia, testCompactUmElemento, testCompactImpar,
+ testCompactPar, testCompactNegativo, testCompactZeros, testCompactRepetidos]
+
+{-
 removeList
 encode
 split
