@@ -17,7 +17,68 @@ testMeuLastRepetidos = TestCase (assertEqual "testMeuLastRepetidos" 2 (meuLast [
 
 testsMeuLast = TestList [testMeuLastVazia, testMeuLastUmElemento, testMeuLastImpar, testMeuLastPar, testMeuLastNegativo, testMeuLastZeros, testMeuLastRepetidos]
 
-testFatorial01 = TestCase (assertEqual "testFatorial01" 1 (fatorial 0) )
+testPenultimoVazia = TestCase (assertEqual "testPenultimoVazia" "Lista sem penultimo" (penultimo []) )
+testPenultimoUmElemento = TestCase (assertEqual "testPenultimoUmElemento" "Lista sem penultimo" (penultimo [5]) )
+testPenultimoImpar = TestCase (assertEqual "testPenultimoImpar" 25 (penultimo [13, 25, 3]) )
+testPenultimoPar = TestCase (assertEqual "testPenultimoPar" 8 (penultimo [13, 2, 8, 12]) )
+testPenultimoNegativo = TestCase (assertEqual "testPenultimoNegativo" -3 (penultimo [-5, -3, -8]) )
+testPenultimoZeros = TestCase (assertEqual "testPenultimoZeros" 0 (penultimo [0, 0, 0, 0]) )
+testPenultimoRepetidos = TestCase (assertEqual "testPenultimoRepetidos" 2 (penultimo [2, 2, 2]) )
+
+testsPenultimo = TestList [testPenultimoVazia, testPenultimoUmElemento, testPenultimoImpar,
+ testPenultimoPar, testPenultimoNegativo, testPenultimoZeros, testPenultimoRepetidos]
+
+testElementAtVazia = TestCase (assertEqual "testElementAtVazia" (elementAt 1 []) ){- testar-}
+testElementAtUmElemento = TestCase (assertEqual "testElementAtUmElemento" 5 (elementAt 1 [5]) )
+{- testar a mais-}
+{- testar a menos-}
+testElementAtImpar = TestCase (assertEqual "testElementAtImpar" 3 (elementAt 3 [13, 25, 3]) )
+testElementAtPar = TestCase (assertEqual "testElementAtPar" 12 (elementAt 4 [13, 2, 25, 12]) )
+testElementAtNegativo = TestCase (assertEqual "testElementAtNegativo" -5 (elementAt 1 [-5, -3, -8]) )
+testElementAtZeros = TestCase (assertEqual "testElementAtZeros" 0 (elementAt 3 [0, 0, 0, 0]) )
+testElementAtRepetidos = TestCase (assertEqual "testElementAttRepetidos" 2 (elementAt 2 [2, 2, 2]) )
+
+testsElementAt = TestList [testElementAtVazia, testElementAtUmElemento, testElementAtImpar,
+ testElementAtPar, testElementAtNegativo, testElementAtZeros, testElementAtRepetidos]
+
+testMeuLengthVazia = TestCase (assertEqual "testMeuLengthVazia" 0 (meuLength []) )
+testMeuLengthUmElemento = TestCase (assertEqual "testMeuLengthUmElemento" (meuLength [5]) )
+testMeuLengthImpar = TestCase (assertEqual "testMeuLengthImpar" 3 (meuLength [13, 25, 3]) )
+testMeuLengthPar = TestCase (assertEqual "testMeuLengthPar" 4 (meuLength [13, 2, 8, 12]) )
+testMeuLengthNegativo = TestCase (assertEqual "testMeuLengthNegativo" 3 (meuLength [-5, -3, -8]) )
+testMeuLengthZeros = TestCase (assertEqual "testMeuLengthZeros" 4 (meuLength [0, 0, 0, 0]) )
+testMeuLengthRepetidos = TestCase (assertEqual "testMeuLengthRepetidos" 3 (meuLength [2, 2, 2]) )
+
+testsMeuLength = TestList [testMeuLengthVazia, testMeuLengthUmElemento, testMeuLengthImpar,
+ testMeuLengthPar, testMeuLengthNegativo, testMeuLengthZeros, testMeuLengthRepetidos]
+
+testMeuReversoVazia = TestCase (assertEqual "testMeuReversoVazia" [] (meuReverso []) )
+testMeuReversoElemento = TestCase (assertEqual "testMeuReversoElemento" [5] (meuReverso [5]) )
+testMeuReversoImpar = TestCase (assertEqual "testMeuReversoImpar" [3, 25, 13] (meuReverso [13, 25, 3]) )
+testMeuReversoPar = TestCase (assertEqual "testMeuReversoPar" [12, 8, 2, 13] (meuReverso [13, 2, 8, 12]) )
+testMeuReversoNegativo = TestCase (assertEqual "testMeuReversoNegativo" [-8, -3, -5] (meuReverso [-5, -3, -8]) )
+testMeuReversoZeros = TestCase (assertEqual "testMeuReversoZeros" [0, 0, 0, 0] (meuReverso [0, 0, 0, 0]) )
+testMeuReversoRepetidos = TestCase (assertEqual "testMeuReversoRepetidos" [2, 2, 2] (meuReverso [2, 2, 2]) )
+
+testsMeuReverso = TestList [testMeuReversoVazia, testMeuReversoElemento, testMeuReversoImpar,
+ testMeuReversoPar, testMeuReversoNegativo, testMeuReversoZeros, testMeuReversoRepetidos]
+
+{-isPalindrome
+compress
+compact
+removeList
+encode
+split
+slice
+insertAt
+minList
+mySum
+maxList
+buildPalindrome
+mean
+myAppend
+-}
+{-testFatorial01 = TestCase (assertEqual "testFatorial01" 1 (fatorial 0) )
 testFatorial02 = TestCase (assertEqual "testFatorial02" 1 (fatorial 1) )
 testFatorial03 = TestCase (assertEqual "testFatorial03" 2 (fatorial 2) )
 testFatorial04 = TestCase (assertEqual "testFatorial04" 6 (fatorial 3) )
@@ -91,6 +152,9 @@ testsCoprimo = TestList [testCoprimo01, testCoprimo02, testCoprimo03,testCoprimo
   testCoprimo05,testCoprimo06, testCoprimo07, testCoprimo08, testCoprimo09,
   testCoprimo10, testCoprimo11, testCoprimo12, testCoprimo13, testCoprimo14]
 
+
+-}
+
 testsPenultimo = TestList []
 testsElementAt = TestList []
 testsMeuLength = TestList []
@@ -108,6 +172,7 @@ testsMaxList = TestList []
 testsBuildPalindrome = TestList []
 testsMean = TestList []
 testsMyAppend = TestList []
+
 
 tests = TestList [testsMeuLast]
 
