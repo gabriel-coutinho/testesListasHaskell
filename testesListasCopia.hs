@@ -7,7 +7,7 @@ import qualified Data.ByteString.Lazy.Char8 as B
 import Data.Aeson.Text (encodeToLazyText)
 import Test.HUnit
 
-testMeuLastVazia = TestCase (assertEqual "testMeuLastVazia" "Lista Vazia!" (meuLast ([] :: [Int])) )
+testMeuLastVazia = TestCase (assertEqual "testMeuLastVazia" "Lista Vazia!" (meuLast ([] :: [String])) )
 testMeuLastUmElemento = TestCase (assertEqual "testMeuLastUmElemento" 5 (meuLast [5]) )
 testMeuLastImpar = TestCase (assertEqual "testMeuLastImpar" 3 (meuLast [13, 25, 3]) )
 testMeuLastPar = TestCase (assertEqual "testMeuLastPar" 12 (meuLast [13, 2, 25, 12]) )
@@ -19,17 +19,17 @@ testsMeuLast = TestList [testMeuLastVazia, testMeuLastUmElemento, testMeuLastImp
  testMeuLastPar, testMeuLastNegativo, testMeuLastZeros, testMeuLastRepetidos]
 
 testPenultimoVazia = TestCase (assertEqual "testPenultimoVazia" "Lista sem penultimo" (penultimo []) )
----testPenultimoUmElemento = TestCase (assertEqual "testPenultimoUmElemento" "Lista sem penultimo" (penultimo [5]) )
+testPenultimoUmElemento = TestCase (assertEqual "testPenultimoUmElemento" "Lista sem penultimo" (penultimo ["5"]))
 testPenultimoImpar = TestCase (assertEqual "testPenultimoImpar" 25 (penultimo [13, 25, 3]) )
 testPenultimoPar = TestCase (assertEqual "testPenultimoPar" 8 (penultimo [13, 2, 8, 12]) )
 testPenultimoNegativo = TestCase (assertEqual "testPenultimoNegativo" (-3) (penultimo [(-5), (-3), (-8)]) )
 testPenultimoZeros = TestCase (assertEqual "testPenultimoZeros" 0 (penultimo [0, 0, 0, 0]) )
 testPenultimoRepetidos = TestCase (assertEqual "testPenultimoRepetidos" 2 (penultimo [2, 2, 2]) )
 
-testsPenultimo = TestList [testPenultimoVazia, testPenultimoImpar,
+testsPenultimo = TestList [testPenultimoVazia, testPenultimoUmElemento, testPenultimoImpar,
  testPenultimoPar, testPenultimoNegativo, testPenultimoZeros, testPenultimoRepetidos]
 
-testElementAtVazia = TestCase (assertEqual "testElementAtVazia" "Lista Vazia" (elementAt 1 ([] :: [Int])) )
+testElementAtVazia = TestCase (assertEqual "testElementAtVazia" "Lista Vazia" (elementAt 1 ([] :: [String])) )
 testElementAtUmElemento = TestCase (assertEqual "testElementAtUmElemento" 5 (elementAt 1 [5]) )
 testElementAtImpar = TestCase (assertEqual "testElementAtImpar" 3 (elementAt 3 [13, 25, 3]) )
 testElementAtPar = TestCase (assertEqual "testElementAtPar" 12 (elementAt 4 [13, 2, 25, 12]) )
@@ -103,7 +103,7 @@ testEncodeVazia = TestCase (assertEqual "testEncodeVazia" [] (ListasSolucao.enco
 testEncodeUmElemento = TestCase (assertEqual "testEncodeUmElemento" [(5,1)] (ListasSolucao.encode [5]))
 testEncodeImpar = TestCase (assertEqual "testEncodeImpar" [(3,2),(25,1)] (ListasSolucao.encode [3, 25, 3]))
 testEncodePar = TestCase (assertEqual "testEncodePar" [(13,1), (12,2), (8,1)] (ListasSolucao.encode [13, 12, 8, 12]))
-testEncodeNegativo = TestCase (assertEqual "testEncodeNegativo" [((-5),1) ((-3),1), ((-8),1)] (ListasSolucao.encode [(-5), (-3), (-8)]))
+testEncodeNegativo = TestCase (assertEqual "testEncodeNegativo" [((-5),1), ((-3),1), ((-8),1)] (ListasSolucao.encode [(-5), (-3), (-8)]))
 testEncodeZeros = TestCase (assertEqual "testEncodeZeros" [(0,4)] (ListasSolucao.encode [0, 0, 0, 0]))
 testEncodeRepetidos = TestCase (assertEqual "testEncodeRepetidos" [(2,3)] (ListasSolucao.encode [2, 2, 2]))
 
@@ -164,7 +164,7 @@ testMaxListRepetidos = TestCase (assertEqual "testMaxListRepetidos" 2 (maxList [
 testsMaxList = TestList [testMaxListVazia, testMaxListUmElemento, testMaxListImpar,
  testMaxListPar, testMaxListNegativo, testMaxListZeros, testMaxListRepetidos]
 
-testMySumVazia = TestCase (assertEqual "testMySumVazia" [] (mySum ([] :: [Int])) )
+testMySumVazia = TestCase (assertEqual "testMySumVazia" undefined (mySum []) )
 testMySumUmElemento = TestCase (assertEqual "testMySumUmElemento" 5 (mySum [5]) )
 testMySumImpar = TestCase (assertEqual "testMySumImpar" 51 (mySum [13, 25, 3]) )
 testMySumPar = TestCase (assertEqual "testMySumPar" 35 (mySum [13, 2, 8, 12]) )
